@@ -12,7 +12,7 @@ class Pago:
 
     def MostrarDetalles(self):
 
-        return f"Monto: ${self.monto:.2f}\nFecha: {self.fecha}\n"
+        return f"Monto: ${self.monto:}\nFecha: {self.fecha}\n"
 
     def ProcesarPago(self):
 
