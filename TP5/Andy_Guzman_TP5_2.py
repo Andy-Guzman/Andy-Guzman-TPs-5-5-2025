@@ -1,4 +1,3 @@
-0
 """Crea una clase Empleado con propiedades nombre, salario y cargo.
 Deriva clases como Gerente y EmpleadoTemporal, añadiendo un método en
 cada una que calcule el aumento de salario basado en ciertos criterios.
