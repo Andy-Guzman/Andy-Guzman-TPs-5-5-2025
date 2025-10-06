@@ -1,51 +1,38 @@
 """
-Crea una clase base llamada Vehiculo con un método virtual mover().
-Luego, crea dos clases derivadas: Coche y Bicicleta, que implementen
-el método mover() de manera diferente.
+Define una clase Pago con propiedades de  monto y fecha. Crea clases
+derivadas como PagoTarjeta y PagoPayPal,implementando métodos para
+procesar pagos, generar recibos y mostrar detalles de pago en la clase base.
 """
 
-class Vehiculo:
-
-    def Mover(self):
-
+class Empleado:
+    def CalcularSalario(self):
+        # Método base que será sobrescrito
         raise NotImplementedError("Este método debe ser sobrescrito por las subclases")
 
-class Coche(Vehiculo):
-
-    def __init__(self, Recorrido):
-
-        self.Recorrido = Recorrido
+class EmpleadoPorHora(Empleado):
+    def __init__(self, HorasTrabajadas, PagoPorHora):
+        self.HorasTrabajadas = HorasTrabajadas
+        self.PagoPorHora = PagoPorHora
     
-    def Mover(self, Min):
+    def CalcularSalario(self):
+        return self.HorasTrabajadas * self.PagoPorHora
 
-        self.Recorrido = Min * self.Recorrido 
-
-        return f"{self.Recorrido}"
-
-class Bicicleta(Vehiculo):
-
-    def __init__(self, Recorrido):
-        
-
-        self.Recorrido = Recorrido
+class EmpleadoFijo(Empleado):
+    def __init__(self, SalarioMensual):
+        self.SalarioMensual = SalarioMensual
     
-    def Mover(self, Min):
-
-        self.Recorrido = Min * self.Recorrido
-        
-        return f"{self.Recorrido}"
+    def CalcularSalario(self):
+        return self.SalarioMensual
 
 def main():
-
-    Min = 2
-
-    Vehiculos = [Coche(50), Bicicleta(15)]
+    empleados = [
+        EmpleadoPorHora(40, 250),
+        EmpleadoFijo(50000)
+    ]
     
-    for Vehiculo in Vehiculos:
-
-        print(f"Km recorrido {Min} minutos por {Vehiculo.__class__.__name__}: {Vehiculo.Mover(Min)}km")
+    for empleado in empleados:
+        print(f"Salario de {empleado.__class__.__name__}: {empleado.CalcularSalario()}")
 
 if __name__ == "__main__":
-
+    
     main()
-

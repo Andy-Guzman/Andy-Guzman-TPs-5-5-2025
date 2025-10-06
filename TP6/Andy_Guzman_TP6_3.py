@@ -16,27 +16,34 @@ class Coche(Vehiculo):
 
         self.Recorrido = Recorrido
     
-    def Mover(self):
+    def Mover(self, Min):
+
+        self.Recorrido = Min * self.Recorrido 
 
         return f"{self.Recorrido}"
 
 class Bicicleta(Vehiculo):
 
     def __init__(self, Recorrido):
+        
 
         self.Recorrido = Recorrido
     
-    def Mover(self):
+    def Mover(self, Min):
 
+        self.Recorrido = Min * self.Recorrido
+        
         return f"{self.Recorrido}"
 
 def main():
+
+    Min = 2
 
     Vehiculos = [Coche(50), Bicicleta(15)]
     
     for Vehiculo in Vehiculos:
 
-        print(f"Km recorrido en un minuto por {Vehiculo.__class__.__name__}: {Vehiculo.Mover()}km")
+        print(f"Km recorrido {Min} minutos por {Vehiculo.__class__.__name__}: {Vehiculo.Mover(Min)}km")
 
 if __name__ == "__main__":
 
